@@ -1,8 +1,9 @@
 <template>
     <div id="toolbar">
-        <i @click="addNote" class="glyphicon glyphicon-plus"></i>
-        <i @click="toggleFavorite" class="glyphicon glyphicon-star" :class="{starred: activeNote.favorite}"></i>
-        <i @click="deleteNote" class="glyphicon glyphicon-remove"></i>
+        <i @click="addNote" title="add note" class="glyphicon glyphicon-plus"></i>
+        <i @click="toggleFavorite" title="toggle favorite" class="glyphicon glyphicon-star" :class="{starred: activeNote.favorite}"></i>
+        <i @click="deleteNote" title="delete note" class="glyphicon glyphicon-remove-circle"></i>
+        <i @click="clearNote" title="clear all note" class="glyphicon glyphicon-remove"></i>
     </div>
 </template>
 
@@ -13,14 +14,17 @@
             activeNote: Object
         },
         methods: {
-            addNote () {
+            addNote() {
                 this.$emit("addNote");
             },
             toggleFavorite() {
                 this.$emit("toggleFavorite");
             },
-            deleteNote () {
+            deleteNote() {
                 this.$emit("deleteNote");
+            },
+            clearNote() {
+                this.$emit("clearNote");
             }
         }
     }
